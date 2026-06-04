@@ -43,7 +43,7 @@ export const Route = createFileRoute("/projetos/$slug")({
 });
 
 function ProjectDetail() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: Project };
   const members = project.members.map(getMemberById).filter(Boolean);
 
   return (
