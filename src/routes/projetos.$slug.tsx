@@ -4,7 +4,7 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { getProjectBySlug, getMemberById, LAB_LABEL, formatDate, type Project } from "@/content/api";
 
 export const Route = createFileRoute("/projetos/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { project: Project } => {
     const project = getProjectBySlug(params.slug);
     if (!project) throw notFound();
     return { project };
