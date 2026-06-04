@@ -43,7 +43,7 @@ export const Route = createFileRoute("/noticias/$slug")({
 });
 
 function NewsDetail() {
-  const { item } = Route.useLoaderData();
+  const { item } = Route.useLoaderData() as { item: NewsItem };
   return (
     <article className="pb-32">
       <div className="container-page pt-12">
