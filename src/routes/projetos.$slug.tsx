@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { SectionReveal } from "@/components/SectionReveal";
-import { getProjectBySlug, getMemberById, LAB_LABEL, formatDate } from "@/content/api";
+import { getProjectBySlug, getMemberById, LAB_LABEL, formatDate, type Project } from "@/content/api";
 
 export const Route = createFileRoute("/projetos/$slug")({
   loader: ({ params }) => {
