@@ -9,38 +9,206 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as SmartCitiesRouteImport } from './routes/smart-cities'
+import { Route as ProjetosRouteImport } from './routes/projetos'
+import { Route as NoticiasRouteImport } from './routes/noticias'
+import { Route as EquipeRouteImport } from './routes/equipe'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as AgroRouteImport } from './routes/agro'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjetosSlugRouteImport } from './routes/projetos.$slug'
+import { Route as NoticiasSlugRouteImport } from './routes/noticias.$slug'
 
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmartCitiesRoute = SmartCitiesRouteImport.update({
+  id: '/smart-cities',
+  path: '/smart-cities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetosRoute = ProjetosRouteImport.update({
+  id: '/projetos',
+  path: '/projetos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NoticiasRoute = NoticiasRouteImport.update({
+  id: '/noticias',
+  path: '/noticias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquipeRoute = EquipeRouteImport.update({
+  id: '/equipe',
+  path: '/equipe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgroRoute = AgroRouteImport.update({
+  id: '/agro',
+  path: '/agro',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjetosSlugRoute = ProjetosSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjetosRoute,
+} as any)
+const NoticiasSlugRoute = NoticiasSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => NoticiasRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agro': typeof AgroRoute
+  '/contato': typeof ContatoRoute
+  '/equipe': typeof EquipeRoute
+  '/noticias': typeof NoticiasRouteWithChildren
+  '/projetos': typeof ProjetosRouteWithChildren
+  '/smart-cities': typeof SmartCitiesRoute
+  '/sobre': typeof SobreRoute
+  '/noticias/$slug': typeof NoticiasSlugRoute
+  '/projetos/$slug': typeof ProjetosSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agro': typeof AgroRoute
+  '/contato': typeof ContatoRoute
+  '/equipe': typeof EquipeRoute
+  '/noticias': typeof NoticiasRouteWithChildren
+  '/projetos': typeof ProjetosRouteWithChildren
+  '/smart-cities': typeof SmartCitiesRoute
+  '/sobre': typeof SobreRoute
+  '/noticias/$slug': typeof NoticiasSlugRoute
+  '/projetos/$slug': typeof ProjetosSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agro': typeof AgroRoute
+  '/contato': typeof ContatoRoute
+  '/equipe': typeof EquipeRoute
+  '/noticias': typeof NoticiasRouteWithChildren
+  '/projetos': typeof ProjetosRouteWithChildren
+  '/smart-cities': typeof SmartCitiesRoute
+  '/sobre': typeof SobreRoute
+  '/noticias/$slug': typeof NoticiasSlugRoute
+  '/projetos/$slug': typeof ProjetosSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agro'
+    | '/contato'
+    | '/equipe'
+    | '/noticias'
+    | '/projetos'
+    | '/smart-cities'
+    | '/sobre'
+    | '/noticias/$slug'
+    | '/projetos/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agro'
+    | '/contato'
+    | '/equipe'
+    | '/noticias'
+    | '/projetos'
+    | '/smart-cities'
+    | '/sobre'
+    | '/noticias/$slug'
+    | '/projetos/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/agro'
+    | '/contato'
+    | '/equipe'
+    | '/noticias'
+    | '/projetos'
+    | '/smart-cities'
+    | '/sobre'
+    | '/noticias/$slug'
+    | '/projetos/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgroRoute: typeof AgroRoute
+  ContatoRoute: typeof ContatoRoute
+  EquipeRoute: typeof EquipeRoute
+  NoticiasRoute: typeof NoticiasRouteWithChildren
+  ProjetosRoute: typeof ProjetosRouteWithChildren
+  SmartCitiesRoute: typeof SmartCitiesRoute
+  SobreRoute: typeof SobreRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-cities': {
+      id: '/smart-cities'
+      path: '/smart-cities'
+      fullPath: '/smart-cities'
+      preLoaderRoute: typeof SmartCitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projetos': {
+      id: '/projetos'
+      path: '/projetos'
+      fullPath: '/projetos'
+      preLoaderRoute: typeof ProjetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/noticias': {
+      id: '/noticias'
+      path: '/noticias'
+      fullPath: '/noticias'
+      preLoaderRoute: typeof NoticiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipe': {
+      id: '/equipe'
+      path: '/equipe'
+      fullPath: '/equipe'
+      preLoaderRoute: typeof EquipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agro': {
+      id: '/agro'
+      path: '/agro'
+      fullPath: '/agro'
+      preLoaderRoute: typeof AgroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +216,57 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projetos/$slug': {
+      id: '/projetos/$slug'
+      path: '/$slug'
+      fullPath: '/projetos/$slug'
+      preLoaderRoute: typeof ProjetosSlugRouteImport
+      parentRoute: typeof ProjetosRoute
+    }
+    '/noticias/$slug': {
+      id: '/noticias/$slug'
+      path: '/$slug'
+      fullPath: '/noticias/$slug'
+      preLoaderRoute: typeof NoticiasSlugRouteImport
+      parentRoute: typeof NoticiasRoute
+    }
   }
 }
 
+interface NoticiasRouteChildren {
+  NoticiasSlugRoute: typeof NoticiasSlugRoute
+}
+
+const NoticiasRouteChildren: NoticiasRouteChildren = {
+  NoticiasSlugRoute: NoticiasSlugRoute,
+}
+
+const NoticiasRouteWithChildren = NoticiasRoute._addFileChildren(
+  NoticiasRouteChildren,
+)
+
+interface ProjetosRouteChildren {
+  ProjetosSlugRoute: typeof ProjetosSlugRoute
+}
+
+const ProjetosRouteChildren: ProjetosRouteChildren = {
+  ProjetosSlugRoute: ProjetosSlugRoute,
+}
+
+const ProjetosRouteWithChildren = ProjetosRoute._addFileChildren(
+  ProjetosRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgroRoute: AgroRoute,
+  ContatoRoute: ContatoRoute,
+  EquipeRoute: EquipeRoute,
+  NoticiasRoute: NoticiasRouteWithChildren,
+  ProjetosRoute: ProjetosRouteWithChildren,
+  SmartCitiesRoute: SmartCitiesRoute,
+  SobreRoute: SobreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
