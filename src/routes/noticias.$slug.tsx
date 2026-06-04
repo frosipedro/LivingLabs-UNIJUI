@@ -1,10 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { SectionReveal } from "@/components/SectionReveal";
-import { getNewsBySlug, LAB_LABEL, formatDate } from "@/content/api";
+import { getNewsBySlug, LAB_LABEL, formatDate, type NewsItem } from "@/content/api";
 
 export const Route = createFileRoute("/noticias/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { item: NewsItem } => {
     const item = getNewsBySlug(params.slug);
     if (!item) throw notFound();
     return { item };
