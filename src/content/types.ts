@@ -33,6 +33,18 @@ export interface NewsItem {
   featured?: boolean;
 }
 
+export interface Sensor {
+  _id: string;
+  name: string;
+  lab: Lab;
+  location: string;
+  metric: string;
+  value: string;
+  unit: string;
+  status: "online" | "atencao" | "offline";
+  updatedAt: string; // ISO datetime
+}
+
 export interface Member {
   _id: string;
   slug: string;

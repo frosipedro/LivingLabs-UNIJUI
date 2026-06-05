@@ -43,7 +43,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 bg-transparent text-foreground transition-[background-color,backdrop-filter,border-color,box-shadow] duration-1000",
+        "fixed top-0 inset-x-0 z-50 bg-transparent text-foreground transition-[background-color,backdrop-filter,border-color,box-shadow] duration-600",
         scrolled &&
           (isLab
             ? "bg-black/60 backdrop-blur-[6px]"

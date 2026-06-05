@@ -2,10 +2,11 @@
 // Swap implementations here without touching pages.
 import { projects } from "./mock/projects";
 import { news } from "./mock/news";
+import { sensors } from "./mock/sensors";
 import { team } from "./mock/team";
-import type { Lab, Project, NewsItem, Member } from "./types";
+import type { Lab, Project, NewsItem, Sensor, Member } from "./types";
 
-export type { Lab, Project, NewsItem, Member };
+export type { Lab, Project, NewsItem, Sensor, Member };
 export { LAB_LABEL } from "./types";
 
 export function getProjects(filter?: { lab?: Lab }): Project[] {
@@ -28,6 +29,10 @@ export function getNewsBySlug(slug: string): NewsItem | undefined {
 }
 export function getFeaturedNews(): NewsItem[] {
   return news.filter((n) => n.featured);
+}
+
+export function getSensors(filter?: { lab?: Lab }): Sensor[] {
+  return filter?.lab ? sensors.filter((sensor) => sensor.lab === filter.lab) : sensors;
 }
 
 export function getTeam(filter?: { lab?: Lab }): Member[] {

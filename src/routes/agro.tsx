@@ -4,8 +4,9 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { LabHero } from "@/components/LabHero";
 import { ProjectCard } from "@/components/ProjectCard";
 import { NewsCard } from "@/components/NewsCard";
+import { SensorSection } from "@/components/SensorSection";
 import { MemberCard } from "@/components/MemberCard";
-import { getProjects, getNews, getTeam } from "@/content/api";
+import { getProjects, getNews, getSensors, getTeam } from "@/content/api";
 import heroAgro from "@/assets/agro-hero.webp";
 
 export const Route = createFileRoute("/agro")({
@@ -50,6 +51,7 @@ const LINES = [
 function AgroPage() {
   const projects = getProjects({ lab: "agro" });
   const news = getNews({ lab: "agro" }).slice(0, 3);
+  const sensors = getSensors({ lab: "agro" });
   const team = getTeam({ lab: "agro" });
 
   return (
@@ -138,6 +140,8 @@ function AgroPage() {
           ))}
         </div>
       </section>
+
+      <SensorSection sensors={sensors} title="Dados do campo em tempo real" />
 
       {/* Team */}
       <section className="container-page py-24 pb-32">

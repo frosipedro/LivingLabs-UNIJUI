@@ -31,14 +31,21 @@ export function FeaturedCarousel() {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="inline-flex rounded-full border border-border p-1 bg-card">
+            <div className="relative grid grid-cols-2 rounded-full border border-border p-1 bg-card">
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute inset-y-1 left-1 w-[calc(50%_-_0.25rem)] rounded-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  tab === "noticias" && "translate-x-full",
+                )}
+              />
               {(["projetos", "noticias"] as const).map((t) => (
                 <button
                   key={t}
                   onClick={() => setTab(t)}
                   className={cn(
-                    "px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-400",
-                    tab === t ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground",
+                    "relative z-10 px-4 py-1.5 text-sm font-medium rounded-full transition-colors duration-500",
+                    tab === t ? "text-background" : "text-muted-foreground hover:text-foreground",
                   )}
                 >
                   {t === "projetos" ? "Projetos" : "Notícias"}

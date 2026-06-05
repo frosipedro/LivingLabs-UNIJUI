@@ -4,8 +4,9 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { LabHero } from "@/components/LabHero";
 import { ProjectCard } from "@/components/ProjectCard";
 import { NewsCard } from "@/components/NewsCard";
+import { SensorSection } from "@/components/SensorSection";
 import { MemberCard } from "@/components/MemberCard";
-import { getProjects, getNews, getTeam } from "@/content/api";
+import { getProjects, getNews, getSensors, getTeam } from "@/content/api";
 import heroSmart from "@/assets/smartcity-hero.webp";
 
 export const Route = createFileRoute("/smart-cities")({
@@ -47,6 +48,7 @@ const LINES = [
 function SmartPage() {
   const projects = getProjects({ lab: "smart-cities" });
   const news = getNews({ lab: "smart-cities" }).slice(0, 3);
+  const sensors = getSensors({ lab: "smart-cities" });
   const team = getTeam({ lab: "smart-cities" });
 
   return (
@@ -131,6 +133,8 @@ function SmartPage() {
           ))}
         </div>
       </section>
+
+      <SensorSection sensors={sensors} title="A cidade medida em tempo real" />
 
       <section className="container-page py-24 pb-32">
         <SectionReveal>
