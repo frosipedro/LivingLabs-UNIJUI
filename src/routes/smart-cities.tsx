@@ -6,15 +6,22 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { NewsCard } from "@/components/NewsCard";
 import { MemberCard } from "@/components/MemberCard";
 import { getProjects, getNews, getTeam } from "@/content/api";
-import heroSmart from "@/assets/hero-smart.jpg";
+import heroSmart from "@/assets/smartcity-hero.webp";
 
 export const Route = createFileRoute("/smart-cities")({
   head: () => ({
     meta: [
       { title: "Living Lab Smart Cities — UNIJUI" },
-      { name: "description", content: "Cidades médias mais inteligentes, transparentes e habitáveis a partir do interior do RS." },
+      {
+        name: "description",
+        content:
+          "Cidades médias mais inteligentes, transparentes e habitáveis a partir do interior do RS.",
+      },
       { property: "og:title", content: "Living Lab Smart Cities — UNIJUI" },
-      { property: "og:description", content: "Dados, sensores e gêmeos digitais aplicados a cidades médias." },
+      {
+        property: "og:description",
+        content: "Dados, sensores e gêmeos digitais aplicados a cidades médias.",
+      },
       { property: "og:url", content: "/smart-cities" },
       { property: "og:image", content: heroSmart },
       { name: "twitter:image", content: heroSmart },
@@ -25,8 +32,14 @@ export const Route = createFileRoute("/smart-cities")({
 });
 
 const LINES = [
-  { t: "Infraestrutura conectada", d: "Iluminação, mobilidade e energia em redes de sensores integradas." },
-  { t: "Dados abertos urbanos", d: "Pipelines públicos e dashboards para apoiar decisões municipais." },
+  {
+    t: "Infraestrutura conectada",
+    d: "Iluminação, mobilidade e energia em redes de sensores integradas.",
+  },
+  {
+    t: "Dados abertos urbanos",
+    d: "Pipelines públicos e dashboards para apoiar decisões municipais.",
+  },
   { t: "Gêmeos digitais", d: "Modelagem 3D para simular intervenções antes de executá-las." },
   { t: "Cidadania digital", d: "Plataformas que aproximam moradores e gestão pública." },
 ];
@@ -37,25 +50,29 @@ function SmartPage() {
   const team = getTeam({ lab: "smart-cities" });
 
   return (
-    <div className="theme-smart bg-background text-foreground -mt-16 md:-mt-20 pt-16 md:pt-20">
+    <div className="theme-smart bg-background text-foreground -mt-16 md:-mt-20">
       <LabHero
-        eyebrow="Living Lab 02"
         title="Smart Cities. Tecnologia urbana de interesse público."
         intro="Trabalhamos com prefeituras, empresas e a comunidade para experimentar soluções de mobilidade, iluminação, dados abertos e gêmeos digitais em cidades médias do sul do Brasil."
         image={heroSmart}
       />
 
       <section className="container-page py-24 md:py-32 max-w-4xl">
-        <SectionReveal><span className="eyebrow">Manifesto</span></SectionReveal>
+        <SectionReveal>
+          <span className="eyebrow">Manifesto</span>
+        </SectionReveal>
         <SectionReveal delay={100}>
           <p className="mt-6 font-display text-2xl md:text-4xl leading-tight tracking-tight">
-            Uma cidade inteligente não é a que tem mais sensores — é a que usa tecnologia para servir melhor às pessoas que vivem nela.
+            Uma cidade inteligente não é a que tem mais sensores — é a que usa tecnologia para
+            servir melhor às pessoas que vivem nela.
           </p>
         </SectionReveal>
       </section>
 
       <section className="container-page pb-24">
-        <SectionReveal><h2 className="h-section">Linhas de atuação</h2></SectionReveal>
+        <SectionReveal>
+          <h2 className="h-section">Linhas de atuação</h2>
+        </SectionReveal>
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {LINES.map((l, i) => (
             <SectionReveal key={l.t} delay={i * 80}>
@@ -77,7 +94,10 @@ function SmartPage() {
             <span className="eyebrow">Projetos</span>
             <h2 className="h-section mt-3">Pilotando a cidade</h2>
           </div>
-          <Link to="/projetos" className="text-sm link-underline hidden md:inline-flex items-center gap-1">
+          <Link
+            to="/projetos"
+            className="text-sm link-underline hidden md:inline-flex items-center gap-1"
+          >
             Todos os projetos <ArrowRight className="size-4" />
           </Link>
         </div>
@@ -96,7 +116,10 @@ function SmartPage() {
             <span className="eyebrow">Notícias</span>
             <h2 className="h-section mt-3">Atualizações recentes</h2>
           </div>
-          <Link to="/noticias" className="text-sm link-underline hidden md:inline-flex items-center gap-1">
+          <Link
+            to="/noticias"
+            className="text-sm link-underline hidden md:inline-flex items-center gap-1"
+          >
             Todas as notícias <ArrowRight className="size-4" />
           </Link>
         </div>

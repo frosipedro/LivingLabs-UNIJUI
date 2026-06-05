@@ -1,7 +1,9 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import unijuiBlueLogo from "@/assets/unijui/unijui-azul.png";
+import unijuiWhiteLogo from "@/assets/unijui/unijui-branco.png";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -17,6 +19,11 @@ const NAV = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
+  const isAgro = pathname === "/agro";
+  const isSmartCities = pathname === "/smart-cities";
+  const isLab = isAgro || isSmartCities;
+  const unijuiLogo = isLab ? unijuiWhiteLogo : unijuiBlueLogo;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -28,24 +35,26 @@ export function Header() {
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-500",
-        scrolled
-          ? "backdrop-blur-xl bg-background/70 border-b border-border/60"
-          : "bg-transparent",
+        "fixed top-0 inset-x-0 z-50 bg-transparent text-foreground transition-[background-color,backdrop-filter,border-color,box-shadow] duration-1000",
+        scrolled &&
+          (isLab
+            ? "bg-black/60 backdrop-blur-[6px]"
+            : "bg-white/70 backdrop-blur-md border-b border-black/5 shadow-sm"),
+        isAgro && "theme-agro",
+        isSmartCities && "theme-smart",
       )}
     >
       <div className="container-page flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2 group" aria-label="UNIJUI Living Labs — Home">
-          <span className="inline-block size-2.5 rounded-full bg-foreground transition-transform duration-500 group-hover:rotate-180" />
-          <span className="font-display font-semibold tracking-tight text-base md:text-lg">
-            UNIJUI <span className="text-muted-foreground font-normal">Living Labs</span>
-          </span>
+        <Link to="/" aria-label="UNIJUI Living Labs — Home">
+          <img src={unijuiLogo} alt="UNIJUI" className="h-8 w-auto md:h-10" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7">
@@ -91,7 +100,9 @@ export function Header() {
               inactiveProps={{ className: "text-muted-foreground" }}
               className="font-display text-3xl py-3 border-b border-border/60 transition-colors hover:text-foreground"
               style={{
-                animation: open ? `fade-up 0.5s ${i * 50}ms cubic-bezier(0.22,1,0.36,1) both` : undefined,
+                animation: open
+                  ? `fade-up 0.5s ${i * 50}ms cubic-bezier(0.22,1,0.36,1) both`
+                  : undefined,
               }}
             >
               {item.label}

@@ -1,10 +1,10 @@
 import type { NewsItem } from "../types";
-import coverAgro1 from "@/assets/cover-agro-1.jpg";
-import coverAgro2 from "@/assets/cover-agro-2.jpg";
-import coverAgro3 from "@/assets/cover-agro-3.jpg";
-import coverSmart1 from "@/assets/cover-smart-1.jpg";
-import coverSmart2 from "@/assets/cover-smart-2.jpg";
-import coverSmart3 from "@/assets/cover-smart-3.jpg";
+import coverAgro1 from "@/assets/cover-agro-1.webp";
+import coverAgro2 from "@/assets/cover-agro-2.webp";
+import coverAgro3 from "@/assets/cover-agro-3.webp";
+import coverSmart1 from "@/assets/cover-smart-1.webp";
+import coverSmart2 from "@/assets/cover-smart-2.webp";
+import coverSmart3 from "@/assets/cover-smart-3.webp";
 
 export const news: NewsItem[] = [
   {

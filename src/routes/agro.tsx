@@ -6,15 +6,22 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { NewsCard } from "@/components/NewsCard";
 import { MemberCard } from "@/components/MemberCard";
 import { getProjects, getNews, getTeam } from "@/content/api";
-import heroAgro from "@/assets/hero-agro.jpg";
+import heroAgro from "@/assets/agro-hero.webp";
 
 export const Route = createFileRoute("/agro")({
   head: () => ({
     meta: [
       { title: "Living Lab Agro — UNIJUI" },
-      { name: "description", content: "Pesquisa aberta em IoT, drones, dados e cooperação para a agricultura do sul do Brasil." },
+      {
+        name: "description",
+        content:
+          "Pesquisa aberta em IoT, drones, dados e cooperação para a agricultura do sul do Brasil.",
+      },
       { property: "og:title", content: "Living Lab Agro — UNIJUI" },
-      { property: "og:description", content: "Tecnologia e dados para o campo, a partir do interior do RS." },
+      {
+        property: "og:description",
+        content: "Tecnologia e dados para o campo, a partir do interior do RS.",
+      },
       { property: "og:url", content: "/agro" },
       { property: "og:image", content: heroAgro },
       { name: "twitter:image", content: heroAgro },
@@ -25,10 +32,19 @@ export const Route = createFileRoute("/agro")({
 });
 
 const LINES = [
-  { t: "Sensoriamento de campo", d: "Redes LoRaWAN e nós de baixo custo para monitorar solo, clima e culturas." },
+  {
+    t: "Sensoriamento de campo",
+    d: "Redes LoRaWAN e nós de baixo custo para monitorar solo, clima e culturas.",
+  },
   { t: "Aeronaves remotas", d: "Drones para mapeamento multiespectral e pulverização localizada." },
-  { t: "Plataformas abertas", d: "Software livre para gestão rural e abertura de dados agronômicos." },
-  { t: "Agricultura familiar", d: "Tecnologias acessíveis, em parceria com cooperativas e sindicatos da região." },
+  {
+    t: "Plataformas abertas",
+    d: "Software livre para gestão rural e abertura de dados agronômicos.",
+  },
+  {
+    t: "Agricultura familiar",
+    d: "Tecnologias acessíveis, em parceria com cooperativas e sindicatos da região.",
+  },
 ];
 
 function AgroPage() {
@@ -37,9 +53,8 @@ function AgroPage() {
   const team = getTeam({ lab: "agro" });
 
   return (
-    <div className="theme-agro bg-background text-foreground -mt-16 md:-mt-20 pt-16 md:pt-20">
+    <div className="theme-agro bg-background text-foreground -mt-16 md:-mt-20">
       <LabHero
-        eyebrow="Living Lab 01"
         title="Agro. Do dado bruto ao manejo melhor."
         intro="Pesquisa aplicada em parceria com produtores, cooperativas e indústrias do agronegócio. Trabalhamos com IoT, sensoriamento remoto, dados e visão computacional para que tecnologia chegue de verdade ao campo."
         image={heroAgro}
@@ -52,14 +67,17 @@ function AgroPage() {
         </SectionReveal>
         <SectionReveal delay={100}>
           <p className="mt-6 font-display text-2xl md:text-4xl leading-tight tracking-tight">
-            Acreditamos que a fronteira da agricultura moderna não é só tecnológica — é também social, ambiental e cooperativa.
+            Acreditamos que a fronteira da agricultura moderna não é só tecnológica — é também
+            social, ambiental e cooperativa.
           </p>
         </SectionReveal>
       </section>
 
       {/* Lines */}
       <section className="container-page pb-24">
-        <SectionReveal><h2 className="h-section">Linhas de atuação</h2></SectionReveal>
+        <SectionReveal>
+          <h2 className="h-section">Linhas de atuação</h2>
+        </SectionReveal>
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {LINES.map((l, i) => (
             <SectionReveal key={l.t} delay={i * 80}>
@@ -82,7 +100,10 @@ function AgroPage() {
             <span className="eyebrow">Projetos</span>
             <h2 className="h-section mt-3">Em campo agora</h2>
           </div>
-          <Link to="/projetos" className="text-sm link-underline hidden md:inline-flex items-center gap-1">
+          <Link
+            to="/projetos"
+            className="text-sm link-underline hidden md:inline-flex items-center gap-1"
+          >
             Todos os projetos <ArrowRight className="size-4" />
           </Link>
         </div>
@@ -102,7 +123,10 @@ function AgroPage() {
             <span className="eyebrow">Notícias</span>
             <h2 className="h-section mt-3">Atualizações recentes</h2>
           </div>
-          <Link to="/noticias" className="text-sm link-underline hidden md:inline-flex items-center gap-1">
+          <Link
+            to="/noticias"
+            className="text-sm link-underline hidden md:inline-flex items-center gap-1"
+          >
             Todas as notícias <ArrowRight className="size-4" />
           </Link>
         </div>

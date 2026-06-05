@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { SectionReveal } from "@/components/SectionReveal";
 import { LabCard } from "@/components/LabCard";
 import { FeaturedCarousel } from "@/components/FeaturedCarousel";
-import heroAgro from "@/assets/hero-agro.jpg";
-import heroSmart from "@/assets/hero-smart.jpg";
+import heroAgro from "@/assets/hero-agro.webp";
+import heroSmart from "@/assets/hero-smart.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
