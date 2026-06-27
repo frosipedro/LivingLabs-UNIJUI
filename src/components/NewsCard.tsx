@@ -21,8 +21,12 @@ export function NewsCard({ item }: { item: NewsItem }) {
       </div>
       <div className="mt-4">
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
-          <span className="font-medium text-foreground">{LAB_LABEL[item.lab]}</span>
-          <span aria-hidden>·</span>
+          {item.lab && (
+            <>
+              <span className="font-medium text-foreground">{LAB_LABEL[item.lab]}</span>
+              <span aria-hidden>·</span>
+            </>
+          )}
           <time dateTime={item.publishedAt}>{formatDate(item.publishedAt)}</time>
         </div>
         <h3 className="mt-2 font-display font-semibold text-lg leading-snug group-hover:underline underline-offset-4 decoration-1">

@@ -91,7 +91,7 @@ function HomePage() {
             <LabCard
               to="/smart-cities"
               title="Smart Cities"
-              description="Cidades médias mais inteligentes, transparentes e habitáveis."
+              description="Cidades mais inteligentes, transparentes e habitáveis."
               image={heroSmart}
               theme="theme-smart"
             />

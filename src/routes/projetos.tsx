@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
 import { SectionReveal } from "@/components/SectionReveal";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -20,9 +20,15 @@ export const Route = createFileRoute("/projetos")({
 });
 
 function ProjetosPage() {
+  const { pathname } = useLocation();
   const [filter, setFilter] = useState<Lab | "all">("all");
   const all = getProjects();
   const list = filter === "all" ? all : all.filter((p) => p.lab === filter);
+  const isListRoute = pathname === "/projetos" || pathname === "/projetos/";
+
+  if (!isListRoute) {
+    return <Outlet />;
+  }
 
   return (
     <section className="container-page pt-20 md:pt-28 pb-24">

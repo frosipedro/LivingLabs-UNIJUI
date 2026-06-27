@@ -7,11 +7,11 @@ import { team } from "./mock/team";
 import type { Lab, Project, NewsItem, Sensor, Member } from "./types";
 
 export type { Lab, Project, NewsItem, Sensor, Member };
-export { LAB_LABEL } from "./types";
+export { LAB_LABEL, PROJECT_STATUS_LABEL } from "./types";
 
 export function getProjects(filter?: { lab?: Lab }): Project[] {
   const list = filter?.lab ? projects.filter((p) => p.lab === filter.lab) : projects;
-  return [...list].sort((a, b) => b.startedAt.localeCompare(a.startedAt));
+  return [...list].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
 }
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);

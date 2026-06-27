@@ -5,17 +5,28 @@ export const LAB_LABEL: Record<Lab, string> = {
   "smart-cities": "Smart Cities",
 };
 
+export type ProjectStatus = "ativo" | "concluido" | "planejado";
+
+export const PROJECT_STATUS_LABEL: Record<ProjectStatus, string> = {
+  ativo: "Ativo",
+  concluido: "Concluído",
+  planejado: "Planejado",
+};
+
 export interface Project {
   _id: string;
   slug: string;
   title: string;
   lab: Lab;
-  summary: string;
+  excerpt: string;
   cover: string;
-  body: string;
-  tags: string[];
-  startedAt: string; // ISO date
-  status: "ativo" | "concluido" | "planejado";
+  categories: string[];
+  year: number;
+  status: ProjectStatus;
+  challenge: string;
+  solution: string;
+  results: string;
+  partners: string[];
   members: string[]; // member ids
   featured?: boolean;
 }
@@ -24,12 +35,14 @@ export interface NewsItem {
   _id: string;
   slug: string;
   title: string;
-  lab: Lab;
+  lab?: Lab;
   excerpt: string;
   cover: string;
-  body: string;
+  categories: string[];
   publishedAt: string; // ISO date
+  readTime: string;
   author: string;
+  content: string;
   featured?: boolean;
 }
 

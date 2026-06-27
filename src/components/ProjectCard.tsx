@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/content/api";
-import { LAB_LABEL } from "@/content/api";
+import { LAB_LABEL, PROJECT_STATUS_LABEL } from "@/content/api";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
@@ -25,10 +25,15 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
       <div className="mt-4 flex items-start justify-between gap-4">
         <div>
+          <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
+            <span className="font-medium text-foreground">{LAB_LABEL[project.lab]}</span>
+            <span aria-hidden>·</span>
+            <span>{PROJECT_STATUS_LABEL[project.status]}</span>
+          </div>
           <h3 className="font-display font-semibold text-lg leading-snug group-hover:underline underline-offset-4 decoration-1">
             {project.title}
           </h3>
-          <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{project.summary}</p>
+          <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{project.excerpt}</p>
         </div>
         <ArrowUpRight className="shrink-0 size-5 mt-1 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </div>
