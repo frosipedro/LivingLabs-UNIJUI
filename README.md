@@ -1,6 +1,6 @@
 # Living Labs UNIJUÍ — Portal Web
 
-Portal institucional para os *Living Labs* da UNIJUÍ, reunindo os eixos **Agro** e **Smart Cities** em um único ambiente digital: projetos, notícias, equipe, sensores e canais de contato.
+Portal institucional para os _Living Labs_ da UNIJUÍ, reunindo os eixos **Agro** e **Smart Cities** em um único ambiente digital: projetos, notícias, equipe, sensores e canais de contato.
 
 Desenvolvido como Estágio Obrigatório do curso de Ciência da Computação — UNIJUÍ.
 
@@ -11,7 +11,7 @@ Desenvolvido como Estágio Obrigatório do curso de Ciência da Computação —
 
 ## Sobre o problema
 
-As informações dos *Living Labs* estavam dispersas entre materiais institucionais, sem um ambiente digital único, dificultando a divulgação para estudantes, pesquisadores, empresas, cooperativas e comunidade. Este portal centraliza essas informações, mantendo identidades visuais distintas para cada laboratório.
+As informações dos _Living Labs_ estavam dispersas entre materiais institucionais, sem um ambiente digital único, dificultando a divulgação para estudantes, pesquisadores, empresas, cooperativas e comunidade. Este portal centraliza essas informações, mantendo identidades visuais distintas para cada laboratório.
 
 ## Stack
 
@@ -79,18 +79,18 @@ A origem dos dados hoje é local (`src/content/mock`), mas isolada atrás de `sr
 ## Como rodar localmente
 
 **Pré-requisitos:**
-- Node.js 20 LTS ou superior
-- npm (incluso no Node), pnpm ou Bun
+
+- Bun (versão estável atual)
 - Git (opcional, apenas para clonar)
 
 **Instalação e desenvolvimento:**
 
 ```bash
 # instalar dependências
-npm install
+bun install
 
 # iniciar servidor de desenvolvimento
-npm run dev
+bun run dev
 ```
 
 A aplicação fica disponível em `http://localhost:3000` (ou outra porta indicada pelo terminal).
@@ -98,18 +98,19 @@ A aplicação fica disponível em `http://localhost:3000` (ou outra porta indica
 **Build de produção:**
 
 ```bash
-npm run build      # gera build otimizada em dist/
-npm run preview    # pré-visualiza a build localmente
+bun run build      # gera a build de produção
+bun run preview    # pré-visualiza a build localmente
 ```
 
 **Lint e formatação:**
 
 ```bash
-npm run lint
-npm run format
+bun run lint
+bun run typecheck
+bun run format
 ```
 
-O build gera arquivos estáticos em `dist/`, publicáveis em qualquer serviço de hospedagem estática (Vercel, Netlify, GitHub Pages) ou servidor próprio (Nginx, Apache).
+O build usa TanStack Start e Nitro, com alvo Cloudflare configurado pelo preset em `vite.config.ts`. A publicação deve usar um ambiente compatível com o alvo configurado; hospedagem estática simples, como GitHub Pages ou Nginx sem runtime, não é garantida por esta configuração.
 
 ## Limitações atuais
 
