@@ -33,7 +33,8 @@ Além da infraestrutura tecnológica, a cooperação inclui formações com prod
     slug: "drones-reduzem-defensivos",
     title: "Estudo mostra redução de 35% no uso de defensivos com drones",
     lab: "agro",
-    excerpt: "Resultados parciais da primeira safra acompanhada pelo lab foram apresentados em simpósio.",
+    excerpt:
+      "Resultados parciais da primeira safra acompanhada pelo lab foram apresentados em simpósio.",
     cover: coverAgro2,
     categories: ["Pesquisa", "Drones", "Agricultura de Precisão"],
     publishedAt: "2026-04-12",

@@ -18,7 +18,7 @@ export function Footer() {
         isSmartCities && "theme-smart",
       )}
     >
-      <div className="container-page py-10 grid gap-46 md:grid-cols-4">
+      <div className="container-page py-10 grid gap-10 md:gap-46 md:grid-cols-4">
         <div className="md:col-span-2">
           <p className="max-w-md text-sm text-muted-foreground leading-relaxed">
             Portal dos Living Labs Agro e Smart Cities da Universidade Regional do Noroeste do

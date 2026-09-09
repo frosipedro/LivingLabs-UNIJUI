@@ -9,7 +9,10 @@ export const Route = createFileRoute("/noticias")({
   head: () => ({
     meta: [
       { title: "Notícias — UNIJUI Living Labs" },
-      { name: "description", content: "Últimas notícias dos Living Labs Agro e Smart Cities da UNIJUI." },
+      {
+        name: "description",
+        content: "Últimas notícias dos Living Labs Agro e Smart Cities da UNIJUI.",
+      },
       { property: "og:title", content: "Notícias — UNIJUI Living Labs" },
       { property: "og:description", content: "Acompanhe as novidades dos Living Labs UNIJUI." },
       { property: "og:url", content: "/noticias" },
@@ -32,7 +35,9 @@ function NoticiasPage() {
 
   return (
     <section className="container-page pt-20 md:pt-28 pb-24">
-      <SectionReveal><span className="eyebrow">Notícias</span></SectionReveal>
+      <SectionReveal>
+        <span className="eyebrow">Notícias</span>
+      </SectionReveal>
       <SectionReveal delay={100}>
         <h1 className="h-display mt-4 max-w-3xl">O que aconteceu por aqui.</h1>
       </SectionReveal>
@@ -44,7 +49,9 @@ function NoticiasPage() {
             onClick={() => setFilter(opt)}
             className={cn(
               "px-4 py-2 rounded-full text-sm font-medium transition-colors border",
-              filter === opt ? "bg-foreground text-background border-foreground" : "border-border hover:bg-accent",
+              filter === opt
+                ? "bg-foreground text-background border-foreground"
+                : "border-border hover:bg-accent",
             )}
           >
             {opt === "all" ? "Todas" : LAB_LABEL[opt]}
@@ -52,7 +59,10 @@ function NoticiasPage() {
         ))}
       </div>
 
-      <div key={filter} className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 animate-[fade-in_0.5s_ease-out]">
+      <div
+        key={filter}
+        className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 animate-[fade-in_0.5s_ease-out]"
+      >
         {list.map((n, i) => (
           <SectionReveal key={n._id} delay={i * 60}>
             <NewsCard item={n} />

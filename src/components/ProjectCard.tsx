@@ -5,11 +5,7 @@ import { LAB_LABEL, PROJECT_STATUS_LABEL } from "@/content/api";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Link
-      to="/projetos/$slug"
-      params={{ slug: project.slug }}
-      className="group block hover-lift"
-    >
+    <Link to="/projetos/$slug" params={{ slug: project.slug }} className="group block hover-lift">
       <div className="relative overflow-hidden rounded-xl aspect-[4/3] bg-muted">
         <img
           src={project.cover}

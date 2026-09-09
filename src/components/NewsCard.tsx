@@ -4,11 +4,7 @@ import { LAB_LABEL, formatDate } from "@/content/api";
 
 export function NewsCard({ item }: { item: NewsItem }) {
   return (
-    <Link
-      to="/noticias/$slug"
-      params={{ slug: item.slug }}
-      className="group block hover-lift"
-    >
+    <Link to="/noticias/$slug" params={{ slug: item.slug }} className="group block hover-lift">
       <div className="relative overflow-hidden rounded-xl aspect-[4/3] bg-muted">
         <img
           src={item.cover}

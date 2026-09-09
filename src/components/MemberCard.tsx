@@ -2,7 +2,11 @@ import type { Member } from "@/content/api";
 import { LAB_LABEL } from "@/content/api";
 
 export function MemberCard({ member }: { member: Member }) {
-  const initials = member.name.split(" ").map((n) => n[0]).slice(0, 2).join("");
+  const initials = member.name
+    .split(" ")
+    .map((n) => n[0])
+    .slice(0, 2)
+    .join("");
   return (
     <div className="group rounded-xl border border-border bg-card p-6 hover-lift">
       <div className="size-16 rounded-full bg-muted flex items-center justify-center font-display font-semibold text-xl">

@@ -24,7 +24,11 @@ export const projects: Project[] = [
       "O projeto desenvolve nós sensores de baixo custo com comunicação LoRaWAN, instalados em propriedades parceiras e conectados a uma plataforma de indicadores em tempo real.",
     results:
       "Os primeiros ciclos de validação indicam redução de até 18% no uso de água em irrigações suplementares e maior precisão na identificação de períodos críticos da cultura.",
-    partners: ["Cooperativas regionais", "Produtores rurais", "Cursos de Agronomia, Computação e Engenharia Elétrica"],
+    partners: [
+      "Cooperativas regionais",
+      "Produtores rurais",
+      "Cursos de Agronomia, Computação e Engenharia Elétrica",
+    ],
     members: ["m1", "m2", "m5"],
     featured: true,
   },
@@ -45,7 +49,11 @@ export const projects: Project[] = [
       "A frente combina drones multiespectrais, visão computacional e pulverização autônoma para localizar manchas de manejo e orientar aplicações pontuais.",
     results:
       "Ensaios de campo registraram economia de até 35% no uso de defensivos em áreas acompanhadas, mantendo o controle agronômico esperado.",
-    partners: ["Produtores de milho", "Empresas de tecnologia agrícola", "Pesquisadores em agricultura de precisão"],
+    partners: [
+      "Produtores de milho",
+      "Empresas de tecnologia agrícola",
+      "Pesquisadores em agricultura de precisão",
+    ],
     members: ["m2", "m6"],
     featured: true,
   },
@@ -86,7 +94,11 @@ export const projects: Project[] = [
       "O piloto instala luminárias LED conectadas com sensores de presença, telemetria de consumo e integração dos dados a uma central de acompanhamento.",
     results:
       "Os primeiros meses apontam redução de consumo e melhor tempo de resposta para manutenção em pontos monitorados do corredor urbano.",
-    partners: ["Prefeitura de Ijuí", "Concessionárias e fornecedores de iluminação", "Equipes de gestão urbana"],
+    partners: [
+      "Prefeitura de Ijuí",
+      "Concessionárias e fornecedores de iluminação",
+      "Equipes de gestão urbana",
+    ],
     members: ["m3", "m4"],
     featured: true,
   },
@@ -128,7 +140,11 @@ export const projects: Project[] = [
       "O gêmeo digital combina LIDAR, imagens de satélite e sensores de campo em um ambiente 3D navegável para simular cenários urbanos.",
     results:
       "A etapa planejada define base cartográfica, integra camadas ambientais e prepara pilotos de simulação para bairros selecionados.",
-    partners: ["Prefeitura de Ijuí", "Pesquisadores em GIS", "Parceiros internacionais em cidades digitais"],
+    partners: [
+      "Prefeitura de Ijuí",
+      "Pesquisadores em GIS",
+      "Parceiros internacionais em cidades digitais",
+    ],
     members: ["m4", "m8"],
   },
 ];

@@ -9,9 +9,15 @@ export const Route = createFileRoute("/projetos")({
   head: () => ({
     meta: [
       { title: "Projetos — UNIJUI Living Labs" },
-      { name: "description", content: "Todos os projetos dos Living Labs Agro e Smart Cities da UNIJUI." },
+      {
+        name: "description",
+        content: "Todos os projetos dos Living Labs Agro e Smart Cities da UNIJUI.",
+      },
       { property: "og:title", content: "Projetos — UNIJUI Living Labs" },
-      { property: "og:description", content: "Projetos ativos, concluídos e planejados dos Living Labs UNIJUI." },
+      {
+        property: "og:description",
+        content: "Projetos ativos, concluídos e planejados dos Living Labs UNIJUI.",
+      },
       { property: "og:url", content: "/projetos" },
     ],
     links: [{ rel: "canonical", href: "/projetos" }],
@@ -32,7 +38,9 @@ function ProjetosPage() {
 
   return (
     <section className="container-page pt-20 md:pt-28 pb-24">
-      <SectionReveal><span className="eyebrow">Projetos</span></SectionReveal>
+      <SectionReveal>
+        <span className="eyebrow">Projetos</span>
+      </SectionReveal>
       <SectionReveal delay={100}>
         <h1 className="h-display mt-4 max-w-3xl">Pesquisa em movimento.</h1>
       </SectionReveal>
@@ -44,7 +52,9 @@ function ProjetosPage() {
             onClick={() => setFilter(opt)}
             className={cn(
               "px-4 py-2 rounded-full text-sm font-medium transition-colors border",
-              filter === opt ? "bg-foreground text-background border-foreground" : "border-border hover:bg-accent",
+              filter === opt
+                ? "bg-foreground text-background border-foreground"
+                : "border-border hover:bg-accent",
             )}
           >
             {opt === "all" ? "Todos" : LAB_LABEL[opt]}
@@ -52,7 +62,10 @@ function ProjetosPage() {
         ))}
       </div>
 
-      <div key={filter} className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 animate-[fade-in_0.5s_ease-out]">
+      <div
+        key={filter}
+        className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 animate-[fade-in_0.5s_ease-out]"
+      >
         {list.map((p, i) => (
           <SectionReveal key={p._id} delay={i * 60}>
             <ProjectCard project={p} />

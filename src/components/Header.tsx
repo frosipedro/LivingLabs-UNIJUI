@@ -41,55 +41,58 @@ export function Header() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 inset-x-0 z-50 bg-transparent text-foreground transition-[background-color,backdrop-filter,border-color,box-shadow] duration-600",
-        scrolled &&
-          (isLab
-            ? "bg-black/60 backdrop-blur-[6px]"
-            : "bg-white/70 backdrop-blur-md border-b border-black/5 shadow-sm"),
-        isAgro && "theme-agro",
-        isSmartCities && "theme-smart",
-      )}
-    >
-      <div className="container-page flex items-center justify-between h-16 md:h-20">
-        <Link to="/" aria-label="UNIJUI Living Labs — Home">
-          <img src={unijuiLogo} alt="UNIJUI" className="h-8 w-auto md:h-10" />
-        </Link>
+    <>
+      <header
+        className={cn(
+          "fixed top-0 inset-x-0 z-50 bg-transparent text-foreground transition-[background-color,backdrop-filter,border-color,box-shadow] duration-600",
+          scrolled &&
+            (isLab
+              ? "bg-black/60 backdrop-blur-[6px]"
+              : "bg-white/70 backdrop-blur-md border-b border-black/5 shadow-sm"),
+          isAgro && "theme-agro",
+          isSmartCities && "theme-smart",
+        )}
+      >
+        <div className="container-page flex items-center justify-between h-16 md:h-20">
+          <div aria-label="UNIJUI" role="img">
+            <img src={unijuiLogo} alt="UNIJUI" className="h-8 w-auto md:h-10" />
+          </div>
 
-        <nav className="hidden lg:flex items-center gap-7">
-          {NAV.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              activeOptions={{ exact: item.to === "/" }}
-              activeProps={{ className: "text-foreground" }}
-              inactiveProps={{ className: "text-muted-foreground hover:text-foreground" }}
-              className="link-underline text-sm font-medium transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="hidden lg:flex items-center gap-7">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                activeOptions={{ exact: item.to === "/" }}
+                activeProps={{ className: "text-foreground" }}
+                inactiveProps={{ className: "text-muted-foreground hover:text-foreground" }}
+                className="link-underline text-sm font-medium transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <button
-          className="lg:hidden inline-flex items-center justify-center size-10 rounded-md hover:bg-accent transition-colors"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={open}
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
-      </div>
+          <button
+            className="lg:hidden inline-flex items-center justify-center size-10 rounded-md hover:bg-accent transition-colors"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
+      </header>
 
-      {/* Mobile menu */}
       <div
         className={cn(
-          "lg:hidden fixed inset-x-0 top-16 bottom-0 bg-background border-t border-border transition-all duration-500",
+          "mobile-menu lg:hidden fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-border bg-background/90 backdrop-blur-xl transition-all duration-500 [scrollbar-gutter:stable]",
+          isAgro && "theme-agro",
+          isSmartCities && "theme-smart",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         )}
       >
-        <nav className="container-page py-8 flex flex-col gap-1">
+        <nav className="container-page py-8 pr-3 flex flex-col gap-1">
           {NAV.map((item, i) => (
             <Link
               key={item.to}
@@ -110,6 +113,6 @@ export function Header() {
           ))}
         </nav>
       </div>
-    </header>
+    </>
   );
 }

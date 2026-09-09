@@ -94,6 +94,16 @@
     opacity: 0;
   }
 }
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: scale(1.025);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* Light / Home theme */
 :root {
@@ -183,6 +193,22 @@
   h6 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-menu {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklch, var(--foreground) 35%, transparent) transparent;
+  }
+
+  .mobile-menu::-webkit-scrollbar {
+    width: 0.35rem;
+  }
+
+  .mobile-menu::-webkit-scrollbar-thumb {
+    background: color-mix(in oklch, var(--foreground) 35%, transparent);
+    border-radius: 999px;
   }
 }
 

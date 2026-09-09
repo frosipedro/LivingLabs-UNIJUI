@@ -7,7 +7,14 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   as?: "div" | "section" | "article" | "header";
 }
 
-export function SectionReveal({ className, delay = 0, as: Tag = "div", style, children, ...rest }: Props) {
+export function SectionReveal({
+  className,
+  delay = 0,
+  as: Tag = "div",
+  style,
+  children,
+  ...rest
+}: Props) {
   const { ref, inView } = useInView<HTMLDivElement>();
   return (
     <Tag

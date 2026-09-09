@@ -5,9 +5,16 @@ export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
       { title: "Sobre — UNIJUI Living Labs" },
-      { name: "description", content: "Conheça os Living Labs Agro e Smart Cities da UNIJUI: missão, abordagem e parcerias." },
+      {
+        name: "description",
+        content:
+          "Conheça os Living Labs Agro e Smart Cities da UNIJUI: missão, abordagem e parcerias.",
+      },
       { property: "og:title", content: "Sobre os Living Labs UNIJUI" },
-      { property: "og:description", content: "Missão, abordagem e parcerias dos laboratórios vivos da UNIJUI." },
+      {
+        property: "og:description",
+        content: "Missão, abordagem e parcerias dos laboratórios vivos da UNIJUI.",
+      },
       { property: "og:url", content: "/sobre" },
     ],
     links: [{ rel: "canonical", href: "/sobre" }],

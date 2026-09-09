@@ -10,10 +10,12 @@ interface Props {
 export function LabHero({ title, intro, image }: Props) {
   return (
     <section className="relative min-h-[90vh] overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
+      <img
+        key={image}
+        src={image}
+        alt=""
         aria-hidden
+        className="absolute inset-0 size-full object-cover animate-[hero-image-in_1200ms_ease-out_both] motion-reduce:animate-none"
       />
       <div
         className="absolute inset-0 bg-linear-to-b from-background/70 via-background/40 to-background"
