@@ -35,7 +35,7 @@ export function FeaturedCarousel() {
               <span
                 aria-hidden
                 className={cn(
-                  "absolute inset-y-1 left-1 w-[calc(50%_-_0.25rem)] rounded-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  "absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                   tab === "noticias" && "translate-x-full",
                 )}
               />
