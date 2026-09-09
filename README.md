@@ -2,6 +2,8 @@
 
 Portal institucional para os _Living Labs_ da UNIJUÍ, reunindo os eixos **Agro** e **Smart Cities** em um único ambiente digital: projetos, notícias, equipe, sensores e canais de contato.
 
+O projeto foi preparado para demonstração e execução local. Os dados apresentados são demonstrativos e a publicação em ambiente institucional poderá ser definida posteriormente pela universidade.
+
 Desenvolvido como Estágio Obrigatório do curso de Ciência da Computação — UNIJUÍ.
 
 - **Aluno:** Pedro Rockenbach Frosi
@@ -24,7 +26,7 @@ As informações dos _Living Labs_ estavam dispersas entre materiais institucion
 - **Sonner** — notificações de retorno
 - **Lucide React** — ícones
 
-> A configuração de build (`vite.config.ts`) usa `@lovable.dev/vite-tanstack-config`, que embute os plugins de TanStack Start, React, Tailwind, path aliases e build do Nitro. Não remova/adicione esses plugins manualmente — o próprio arquivo alerta sobre duplicação de plugins.
+> A configuração de build (`vite.config.ts`) usa `@lovable.dev/vite-tanstack-config`, que embute os plugins de TanStack Start, React, Tailwind, path aliases e integração de build. Não remova/adicione esses plugins manualmente — o próprio arquivo alerta sobre duplicação de plugins.
 
 ## Estrutura do projeto
 
@@ -93,14 +95,16 @@ bun install
 bun run dev
 ```
 
-A aplicação fica disponível em `http://localhost:3000` (ou outra porta indicada pelo terminal).
+A aplicação fica disponível no endereço indicado pelo terminal. Normalmente, neste projeto, é `http://localhost:8080`.
 
-**Build de produção:**
+**Build local:**
 
 ```bash
 bun run build      # gera a build de produção
 bun run preview    # pré-visualiza a build localmente
 ```
+
+O comando `preview` serve a build gerada localmente. Para a entrega acadêmica, não é necessário configurar hospedagem, banco de dados ou serviços externos.
 
 **Lint e formatação:**
 
@@ -110,7 +114,15 @@ bun run typecheck
 bun run format
 ```
 
-O build usa TanStack Start e Nitro, com alvo Cloudflare configurado pelo preset em `vite.config.ts`. A publicação deve usar um ambiente compatível com o alvo configurado; hospedagem estática simples, como GitHub Pages ou Nginx sem runtime, não é garantida por esta configuração.
+O projeto utiliza TanStack Start com renderização no servidor e está configurado para ser executado localmente. Uma publicação futura deverá ser ajustada ao ambiente escolhido pela universidade; hospedagem estática simples, como GitHub Pages ou Nginx sem runtime, não é garantida por esta configuração.
+
+## Comportamento da interface
+
+- Navegação responsiva para smartphones, tablets e desktops
+- Menu mobile com rolagem própria e fundo adaptado ao laboratório atual
+- Transição suave nas imagens principais das páginas Agro e Smart Cities
+- Carrossel de projetos e notícias com arraste livre em telas pequenas
+- Conteúdo separado em componentes reutilizáveis e dados locais simulados
 
 ## Limitações atuais
 
@@ -121,7 +133,7 @@ Este é um **protótipo funcional**, não um sistema em produção:
 - Formulário de contato valida os campos, mas não envia dados a um backend real
 - Sensores exibem valores simulados, não telemetria real
 - Sem suíte de testes automatizados
-- Sem auditoria formal de acessibilidade (WCAG) ou validação de usabilidade com usuários reais — apenas verificação técnica manual (contraste calculado, navegação e responsividade inspecionadas)
+- Sem auditoria formal de acessibilidade (WCAG) ou validação de usabilidade com usuários reais — foram realizadas verificações técnicas manuais de contraste, navegação e responsividade
 
 ## Trabalhos futuros
 
